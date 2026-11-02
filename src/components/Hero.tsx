@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowDown, Mail, ExternalLink, Sparkles, Layers, Target, TrendingUp, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_DETAILS } from '../data/portfolioData';
 
@@ -8,21 +7,6 @@ interface HeroProps {
 }
 
 export default function Hero({ onViewProjects, onWorkTogether }: HeroProps) {
-  const [customPhoto, setCustomPhoto] = useState<string | null>(null);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (typeof reader.result === 'string') {
-          setCustomPhoto(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
     <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden border-b border-slate-800/60">
       {/* Background ambient glow highlights */}
@@ -111,10 +95,10 @@ export default function Hero({ onViewProjects, onWorkTogether }: HeroProps) {
                 {/* Profile Image Frame */}
                 <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-700/60 group">
                   <img
-                    src={customPhoto || PERSONAL_DETAILS.profileImage}
+                    src={PERSONAL_DETAILS.profileImage}
                     alt="Muhammad Hamza - Digital Advertising Specialist"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-102"
+                    className="w-full h-full object-cover object-top grayscale transition-transform duration-500 group-hover:scale-102"
                   />
 
                   {/* Gentle gradient scrim at bottom */}
@@ -138,21 +122,7 @@ export default function Hero({ onViewProjects, onWorkTogether }: HeroProps) {
                   </div>
                 </div>
 
-                {/* Profile Photo Replacement Tooltip / Control */}
-                <div className="mt-3.5 flex items-center justify-between gap-2 px-1">
-                  <span className="text-[11px] text-slate-400">
-                    Professional profile placeholder
-                  </span>
-                  <label className="text-[11px] font-medium text-indigo-400 hover:text-indigo-300 cursor-pointer underline decoration-dotted transition-colors">
-                    <span>Replace photo preview</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handlePhotoUpload}
-                      className="hidden"
-                    />
-                  </label>
-                </div>
+                <div className="mt-3.5 h-[16px]" aria-hidden="true" />
 
                 {/* Mini Platform Strategy Indicator */}
                 <div className="mt-4 pt-4 border-t border-slate-800 grid grid-cols-3 gap-2 text-center">

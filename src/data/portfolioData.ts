@@ -1,4 +1,4 @@
-import hamzaProfile from '../assets/images/hamza_profile_portrait_1793592336726.jpg';
+import hamzaProfile from '../assets/images/hamza 1.jpeg';
 import urbanwearImage from '../assets/images/urbanwear_campaign_ad_1793592337823.jpg';
 import glowNestImage from '../assets/images/glownest_skincare_ad_1793592337195.jpg';
 import lahoreBitesImage from '../assets/images/lahore_bites_food_ad_1793592338128.jpg';
